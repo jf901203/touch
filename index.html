@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<link href="" rel="stylesheet">
+<style>
+	#demo{
+		width: 100%;
+		height: 100px;
+		background: red;
+	}
+</style>
+</head>
+<body>
+    <div id="demo">
+    	
+    </div>	
+</body>
+</html>
+<script type="text/javascript">
+/*
+
+
+解释event事件对象:包含三个数组 这三个数组都包含touch对象
+
+touches：当前屏幕上所有触摸点的集合列表
+
+targetTouches：绑定事件的那个结点上的触摸点的集合列表
+
+changedTouches：触发事件时改变的触摸点的集合
+
+但是当touchend事件触发时，不会记录touches,targetTouches数组中的touch对象，
+
+只有changedTouches数组记录了每个事件的触摸点
+
+
+touch对象：包含的属性
+
+clientX:触摸目标在视口的X坐标
+
+clientY:触摸目标在视口的Y坐标
+
+pageX:触摸目标在页面中的X坐标
+
+pageY:触摸目标在页面中的Y坐标
+
+screenX:触摸目标在屏幕的X坐标
+
+screenY:触摸目标在屏幕的Y坐标
+
+target:触摸目标的DOM节点目标
+
+
+*/
+
+
+	var demo=document.getElementById("demo");
+    // 监听手指触屏时触发的事件
+	demo.addEventListener("touchstart", function(ev) {
+	    
+	    console.log(ev.touches[0].clientX);
+	    
+	});
+    // 监听手指滑屏时触发的事件
+	demo.addEventListener("touchmove", function(ev) {
+	    
+	    console.log(ev.touches[0].clientX);
+	    
+	});
+    // 监听手指离开触屏时触发的事件
+	demo.addEventListener("touchend", function(ev) {
+	    
+	    console.log(ev.changedTouches[0].clientX);
+	    
+	});
+	
+</script>
